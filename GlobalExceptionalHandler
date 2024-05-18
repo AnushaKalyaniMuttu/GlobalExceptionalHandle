@@ -1,0 +1,11 @@
+@ControllerAdvice
+public class MyControllerAdvice{
+@ExceptionHandler(EmptyInputException.class)
+public ResponseEntity<String> handleEmptyInput(EmptyInputException emptyInputException){
+return new ResponseEntity<String>("Input field is Empty, Please Look into it", HttpStatus.BAD_REQUEST);
+
+@ExceptionalHandler(NoSuchElementException.class)
+public ResponseEntity<String> handleNoSuchElementException(NoSuchElementException noSuchElementException){
+return new ResponseEntity<String>("No Value in DB, Please change your request", HttpStatus.NOT_FOUND);
+
+}
